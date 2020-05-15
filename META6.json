@@ -3,7 +3,7 @@
     "Timo Paulssen"
   ],
   "build-depends" : [ ],
-  "depends" : [ "JSON::Fast", "MoarVM::Remote" ],
+  "depends" : [ "JSON::Fast", "MoarVM::Remote", "Terminal::ANSIColor" ],
   "description" : "A command line interface application for debugging Perl 6 and NQP code using the MoarVM remote debugger.",
   "license" : "Artistic-2.0",
   "name" : "App::MoarVM::Debug",

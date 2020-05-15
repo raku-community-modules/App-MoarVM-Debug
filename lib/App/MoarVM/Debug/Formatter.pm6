@@ -1,6 +1,7 @@
 unit module MoarVM::Remote::CLI::Formatter;
 
-my $has-color = (try require Terminal::ANSIColor) !=== Nil;
+my $has-color = True;
+require Terminal::ANSIColor;
 my $wants-color = $*OUT.t;
 
 our sub wants-color is rw is export {
