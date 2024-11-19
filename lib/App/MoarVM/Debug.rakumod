@@ -161,6 +161,11 @@ Supported commands:
 &bold("clearbp") "[file path]" [line number]
   Clear any breakpoints for a given filename and line number.
 
+&bold("filenames") ["search term"]
+  Shows all filenames currently known, optionally filtering
+  by the provided text.
+  Synonyms: &bold("fns")
+
 &bold("assume thread") [thread number]
   If you don't pass a thread number in future commands, this one will be used.
 
@@ -347,6 +352,28 @@ sub clearbp(Str() $file, Int() $line --> Nil) {
       "clearing breakpoint for $file:$line",
       { $remote.clear-breakpoints($file, $line) }
     say $result.&to-json(:pretty);
+}
+
+sub filenames($search?) {
+    try {
+        CATCH {
+            say "Error trying to get loaded filenames: $_";
+        }
+
+        if $search {
+            my @results = $remote.filenames().sort.map({
+                if / :i $search / {
+                    $/.prematch ~ bold($/) ~ $/.postmatch;
+                }
+            });
+            table-print
+                "Names of already loaded files matching &bold($search)" => @results;
+        }
+        else {
+            table-print
+                "Names of already loaded files" => $remote.filenames().sort.cache;
+        }
+    }
 }
 
 sub coderef(Int() $frame, $id) {
@@ -841,6 +868,8 @@ sub MAIN(
         }
     }
 
+    my $filenames-result = try $remote.get-filenames();
+
     assume-thread(1);
     until (my $input = prompt("> ")) === Any {
         $_ = $input;
@@ -905,6 +934,9 @@ sub MAIN(
         }
         when /:s [breakpoint|bp][":"|<.ws>]\"(.*?)\" (\d+) (\d?) (\d?) / {
             breakpoint $0, $1, +$2, +$3;
+        }
+        when /:s [filenames|files|fns] [ \" $<term>=<-["]>+ \" ]? / {
+            filenames $<term> ?? $<term>.Str !! Str;
         }
         when /:s release[handles]? (\d+)+ % \s+/ {
             release-handles |$0;
