@@ -6,7 +6,7 @@ sub output-breakpoint-notifications(Str $file, Int $line, Supply $notifications)
     say "Receiving breakpoint notifications for $file:$line";
     start {
         react whenever $notifications.Supply -> $ev {
-            with $sup<frames> -> $frames {
+            with $ev<frames> -> $frames {
                 my @this-backtrace = format-backtrace($frames);
 
                 print-table my @chunks =
