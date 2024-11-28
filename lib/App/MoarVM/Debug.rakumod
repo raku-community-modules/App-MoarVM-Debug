@@ -812,12 +812,7 @@ sub thread-list(--> Nil) {
 
 #- input handling --------------------------------------------------------------
 
-sub MAIN(
-  Int $port = %*ENV<MVM_DEBUG_PORT> // 27434,
-  Int :abbreviate-length($abvl) = 70
-) is export {
-    $abbreviate-length = $abvl;
-
+multi sub MAIN(Str $path, Int $port, Int $abbreviate-length, *@args) is export {
     say "Welcome to the MoarVM Remote Debugger!";
 
     unless %*ENV<_>:exists and %*ENV<_>.ends-with: 'rlwrap' {
