@@ -1,15 +1,14 @@
 use App::MoarVM::Debug;
 
-if @*ARGS -> @ARGS {
-    my $port := %*ENV<MVM_DEBUG_PORT> // 27434;
-    note "Running with debugging enabled at localhost port $port";
-    my $proc := run
-      $*EXECUTABLE.absolute,
-      "--debug-port=$port",
-      "--debug-suspend",
-      |@ARGS
-    ;
-    exit $proc.exitcode;
+multi sub MAIN(Str $path, Int :$port = %*ENV<MVM_DEBUG_PORT> // 27434,
+               Int :$abbreviate-length = 70, *@args) {
+  say "Incorrect file path $path" and return unless $path.IO.e;
+  my $proc := Proc::Async.new($*EXECUTABLE.absolute, "--debug-port=$port",
+                              "--debug-suspend", "$path", |@args).start;
+
+
+  MAIN $path, $port, $abbreviate-length, @args;
+  await $proc;
 }
 
 # vim: expandtab shiftwidth=4
