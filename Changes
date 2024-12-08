@@ -2,6 +2,10 @@ Revision history for App-MoarVM-Debug
 
 {{$NEXT}}
 
+0.2  2024-12-08T16:35:43+01:00
+    - Bump version number because of rogue version appearing
+      in ecosystem with number higher than 0.1.3
+
 0.1.3  2024-11-08T15:18:41+01:00
     - Add dependency on String::Utils
 
