@@ -11,6 +11,7 @@ my str $backspaces = "\b" x 80;
 my $remote;
 my $default-thread;
 my @user-threads;
+my %breakpoints;
 my %abbreviated;
 my %reverse-abbreviated;
 my $abbreviate-length;
@@ -158,8 +159,12 @@ Supported commands:
   If suspend is 1, execution of the thread that hit it will stop.
   If stacktrace is 1, every hit will send a stack trace along with it.
 
-&bold("clearbp") "[file path]" [line number]
-  Clear any breakpoints for a given filename and line number.
+&bold("breakpoints")
+  Print all breakpoints.
+  Synonyms: &bold("bpl")
+
+&bold("clearbp") [id] | "[file path]" [line number]
+  Clear any breakpoints for a given ID or filename and line number.
 
 &bold("assume thread") [thread number]
   If you don't pass a thread number in future commands, this one will be used.
@@ -326,12 +331,30 @@ sub backtrace($id --> Nil) {
 sub breakpoint(
   Str() $file, Int() $line, Bool() $suspend = False, Bool() $stacktrace = False
 --> Nil) {
+    if %breakpoints.pairs.first: { .value<file> eq $file and .value<line> eq $line } -> $b {
+        say "A breakpoint for this file and line (suspend={{$b.value<suspend>}} stacktrace={$b.value<stacktrace>}) already exists.";
+        say 'Replace it with this new one? (y/n)';        
+        while my $answer = prompt('> ') {
+            if    $answer eq 'y' { clearbp $b.key; last }
+            elsif $answer eq 'n' { return }
+            else                 { say "It's a y/n answer, but given $answer" }
+        }
+    }
+
     my $result := remote
       "setting breakpoint",
       { $remote.breakpoint($file, $line, :$suspend, :$stacktrace) }
+    state $id = 1;
+    %breakpoints{$id++} = %(:$file, :$line, :$suspend, :$stacktrace);
 
     output-breakpoint-notifications($file, $result<line>, $_)
       with $result<notifications>;
+}
+
+sub breakpoint-list {
+    table-print "Breakpoints" => (('id', 'file', 'line', 'suspend', 'stacktrace'), |%breakpoints.sort(*.key).map({
+        ($_.key, $_.value<file line suspend stacktrace>)>>.List.flat if defined $_.value
+    }));
 }
 
 sub caller(Int() $handle --> Nil) {
@@ -342,11 +365,22 @@ sub caller(Int() $handle --> Nil) {
     say $result.&to-json(:pretty);
 }
 
-sub clearbp(Str() $file, Int() $line --> Nil) {
+multi sub clearbp(Int() $id --> Nil) {
+    say "Breakpoint with this ID ($id) does not exist" and return unless defined %breakpoints{$id};
+    my ($file, $line) = %breakpoints{$id}<file line>;
+    clearbp $file, $line, $id;
+}
+
+multi sub clearbp(Str() $file, Int() $line, Int() $id? is copy --> Nil) {
+    $id //= %breakpoints.pairs.first({ .value<file> eq $file and .value<line> eq $line }).key
+        or say "No breakpoint like that ($file:$line) exists" and return;
+    %breakpoints{$id}:delete;
+
     my $result := remote
       "clearing breakpoint for $file:$line",
       { $remote.clear-breakpoints($file, $line) }
-    say $result.&to-json(:pretty);
+    
+    say "Deleted breakpoint for $file:$line with ID $id";
 }
 
 sub coderef(Int() $frame, $id) {
@@ -900,11 +934,14 @@ sub MAIN(
         when /:s de[cont]? (\d+) (\d+)? / {
             decont $0, $1;
         }
-        when /:s clearbp \"(.*?)\" (\d+) / {
-            clearbp $0, $1;
+        when /:s clearbp [(\d+) | \"(.*?)\" (\d+)] / {
+            $0.Int ?? clearbp $0 !! clearbp $0, $1;
         }
         when /:s [breakpoint|bp][":"|<.ws>]\"(.*?)\" (\d+) (\d?) (\d?) / {
             breakpoint $0, $1, +$2, +$3;
+        }
+        when /:s [breakpoints|bpl] / {
+            breakpoint-list;
         }
         when /:s release[handles]? (\d+)+ % \s+/ {
             release-handles |$0;
