@@ -332,7 +332,7 @@ sub breakpoint(
   Str() $file, Int() $line, Bool() $suspend = False, Bool() $stacktrace = False
 --> Nil) {
     if %breakpoints.pairs.first: { .value<file> eq $file and .value<line> eq $line } -> $b {
-        say "A breakpoint for this file and line (suspend={{$b.value<suspend>}} stacktrace={$b.value<suspend>}) already exists.";
+        say "A breakpoint for this file and line (suspend={{$b.value<suspend>}} stacktrace={$b.value<stacktrace>}) already exists.";
         say 'Replace it with this new one? (y/n)';        
         while my $answer = prompt('> ') {
             if    $answer eq 'y' { clearbp $b.key; last }
