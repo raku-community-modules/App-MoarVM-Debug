@@ -3,9 +3,9 @@
 App::MoarVM::Debug
 ==================
 
-The interactive MoarVM debugger installs a script called `raku-remote-debug` that allows a developer to start a Raku program in debugger mode, while in another window allows the developer to step through the program and perform various types of introspection.
+The interactive MoarVM debugger installs a script called `raku-remote-debug` that allows a developer to start a Raku program in debugger mode which allows the developer to step through the program and perform various types of introspection.
 
-Starting in debugger mode
+Starting the debugger
 -------------------------
 
     $ raku-remote-debug your-program.raku arg1 arg2
@@ -16,20 +16,6 @@ When it is started this way, it will show a text on STDERR such as:
 
     Running with debugging enabled at localhost port 27434
 
-Your program will not actually execute until you have entered the `resume` command in the debugger.
-
-Starting the debugger
----------------------
-
-    $ raku-remote-debug
-
-To start the debugger, call `raku-remote-debug` **without** any arguments. It will show you a text such as:
-
-    Welcome to the MoarVM Remote Debugger
-
-    Connecting to MoarVM remote on localhost port 27434
-    success!
-    >
 
 You would typically then set breakpoints or do some introspection. And then start the program by typing "resume" to lift the suspension of all threads in the program.
 
@@ -42,15 +28,15 @@ The debugger uses a single port to communicate between your program and the debu
 
 This means that on any given computer, only one program can be debugged this way, and only one debugger can run at the same time.
 
-Should you need to have more debuggers running at the same time, or for some reason you need to use another port, you can set the environment variable `MVM_DEBUG_PORT` to the port you'd like to use.
-
-To start your program:
-
-    $ MVM_DEBUG_PORT=4242 raku-remote-debug your-program.raku arg1 arg2
+Should you need to have more debuggers running at the same time, or for some reason you need to use another port, you can set the environment variable `MVM_DEBUG_PORT` to the port you'd like to use or pass `--port` argument to the debugger.
 
 To start the debugger:
 
-    $ MVM_DEBUG_PORT=4242 raku-remote-debug
+    $ MVM_DEBUG_PORT=4242 raku-remote-debug your-program.raku arg1 arg2
+
+  or
+
+    $ raku-remote-debug --port=2666 your-program.raku arg1 arg2
 
 Some hints
 ----------
