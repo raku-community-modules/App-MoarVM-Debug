@@ -7,7 +7,7 @@ multi sub MAIN(Str $path, Int :$port = %*ENV<MVM_DEBUG_PORT> // 27434,
                               "--debug-suspend", "$path", |@args).start;
 
 
-  MAIN $path, $port, $abbreviate-length, @args;
+  MAIN $path, $port, :$abbreviate-length, @args;
   await $proc;
 }
 
