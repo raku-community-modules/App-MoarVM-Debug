@@ -1,5 +1,3 @@
-unit module MoarVM::Remote::CLI::Breakpoints;
-
 use App::MoarVM::Debug::Formatter;
 
 sub output-breakpoint-notifications(Str $file, Int $line, Supply $notifications) is export {

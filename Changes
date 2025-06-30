@@ -1,6 +1,7 @@
 Revision history for App-MoarVM-Debug
 
 {{$NEXT}}
+    - Update copyright year
 
 0.2  2024-12-08T16:35:43+01:00
     - Bump version number because of rogue version appearing

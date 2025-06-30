@@ -6,9 +6,9 @@
   "build-depends": [
   ],
   "depends": [
-    "String::Utils",
-    "JSON::Fast",
-    "MoarVM::Remote"
+    "JSON::Fast:ver<0.19+>:auth<cpan:TIMOTIMO>",
+    "MoarVM::Remote:ver<0.0.4+>:auth<zef:raku-community-modules>",
+    "String::Utils:ver<0.0.32+>:auth<zef:lizmat>"
   ],
   "description": "A command line interface for debugging Raku and NQP code using the MoarVM remote debugger",
   "license": "Artistic-2.0",

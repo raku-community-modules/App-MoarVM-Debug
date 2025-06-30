@@ -1,7 +1,8 @@
-use MoarVM::Remote;
+use MoarVM::Remote:ver<0.0.4+>:auth<zef:raku-community-modules>;
+use JSON::Fast:ver<0.19+>:auth<cpan:TIMOTIMO>;
+
 use App::MoarVM::Debug::Formatter;
 use App::MoarVM::Debug::Breakpoints;
-use JSON::Fast;
 
 my str $spaces     = " "  x 80;
 my str $backspaces = "\b" x 80;

@@ -1,5 +1,3 @@
-unit module MoarVM::Remote::CLI::Formatter;
-
 use String::Utils <root>;
 
 my $has-color = (try require Terminal::ANSIColor) !=== Nil;
