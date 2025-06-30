@@ -37,7 +37,7 @@ multi sub table-print(Pair:D $pair) {
     table-print ($pair,)
 }
 multi sub table-print(@chunks) {
-    MoarVM::Remote::CLI::Formatter::print-table(
+    print-table(
       @chunks, :%abbreviated, :%reverse-abbreviated, :$abbreviate-length
     );
 }
