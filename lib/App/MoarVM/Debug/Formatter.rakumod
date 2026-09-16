@@ -1,4 +1,4 @@
-use String::Utils <root>;
+use String::Utils:ver<0.0.40+>:auth<zef:lizmat> <root>;
 
 my $has-color = (try require Terminal::ANSIColor) !=== Nil;
 my $wants-color = $*OUT.t;

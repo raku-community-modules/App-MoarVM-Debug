@@ -1,6 +1,8 @@
 Revision history for App-MoarVM-Debug
 
 {{$NEXT}}
+    - Up dependencies and remove as yet unneeded dependencies
+    - Modernize META and documentation
     - Update copyright year
 
 0.2  2024-12-08T16:35:43+01:00
