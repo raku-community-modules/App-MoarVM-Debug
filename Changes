@@ -1,6 +1,8 @@
 Revision history for App-MoarVM-Debug
 
 {{$NEXT}}
+
+0.3  2026-09-16T16:28:19+02:00
     - Up dependencies and remove as yet unneeded dependencies
     - Modernize META and documentation
     - Update copyright year

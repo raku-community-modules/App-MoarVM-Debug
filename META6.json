@@ -5,23 +5,32 @@
   ],
   "build-depends": [
   ],
-  "depends": [
-    "JSON::Fast:ver<0.21+>:auth<zef:timo>",
-    "MoarVM::Remote:ver<0.0.5+>:auth<zef:raku-community-modules>",
-    "String::Utils:ver<0.0.40+>:auth<zef:lizmat>"
-  ],
+  "depends": {
+    "runtime": {
+      "requires": [
+        "JSON::Fast:ver<0.21+>:auth<zef:timo>",
+        "MoarVM::Remote:ver<0.0.5+>:auth<zef:raku-community-modules>",
+        "String::Utils:ver<0.0.40+>:auth<zef:lizmat>"
+      ]
+    }
+  },
   "description": "A command line interface for debugging Raku and NQP code using the MoarVM remote debugger",
   "license": "Artistic-2.0",
   "name": "App::MoarVM::Debug",
-  "perl": "6.c",
   "provides": {
     "App::MoarVM::Debug": "lib/App/MoarVM/Debug.rakumod",
     "App::MoarVM::Debug::Breakpoints": "lib/App/MoarVM/Debug/Breakpoints.rakumod",
     "App::MoarVM::Debug::Formatter": "lib/App/MoarVM/Debug/Formatter.rakumod"
   },
+  "raku": "6.c",
   "resources": [
   ],
   "source-url": "https://github.com/raku-community-modules/App-MoarVM-Debug.git",
+  "support": {
+    "bugtracker": "https://github.com/raku-community-modules/App-MoarVM-Debug/issues",
+    "email": "community@raku.org",
+    "source": "https://github.com/raku-community-modules/App-MoarVM-Debug.git"
+  },
   "tags": [
     "MoarVM",
     "Debug",
@@ -35,5 +44,5 @@
   ],
   "test-depends": [
   ],
-  "version": "0.2"
+  "version": "0.3"
 }

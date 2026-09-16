@@ -4,7 +4,7 @@
   "specVersion": "1.6",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-08-03T12:36:08+00:00",
+    "timestamp": "2026-09-16T14:28:52+00:00",
     "lifecycles": [
       {
         "phase": "pre-build"
@@ -19,7 +19,7 @@
     "component": {
       "type": "library",
       "mime-type": "text/plain",
-      "bom-ref": "pkg:raku/zef:raku-community-modules/App::MoarVM::Debug@0.2",
+      "bom-ref": "pkg:raku/zef:raku-community-modules/App::MoarVM::Debug@0.3",
       "authors": [
         {
           "bom-ref": "TimoPaulssen",
@@ -29,7 +29,7 @@
       "publisher": "zef",
       "group": "zef:raku-community-modules",
       "name": "App::MoarVM::Debug",
-      "version": "0.2",
+      "version": "0.3",
       "description": "A command line interface for debugging Raku and NQP code using the MoarVM remote debugger",
       "scope": "required",
       "licenses": [
@@ -41,27 +41,31 @@
           }
         }
       ],
-      "purl": "pkg:raku/zef:raku-community-modules/App::MoarVM::Debug@0.2",
+      "purl": "pkg:raku/zef:raku-community-modules/App::MoarVM::Debug@0.3",
       "externalReferences": [
-        {
-          "url": "https://raku.land/zef:raku-community-modules/App::MoarVM::Debug?v=0.2",
-          "type": "documentation"
-        },
         {
           "url": "https://github.com/raku-community-modules/App-MoarVM-Debug",
           "type": "distribution"
+        },
+        {
+          "url": "https://raku.land/zef:raku-community-modules/App::MoarVM::Debug?v=0.3",
+          "type": "documentation"
         },
         {
           "url": "https://github.com/raku-community-modules/App-MoarVM-Debug/issues",
           "type": "issue-tracker"
         },
         {
-          "url": "https://github.com/raku-community-modules/App-MoarVM-Debug/archive/refs/tags/0.2.zip",
+          "url": "https://spdx.org/licenses/Artistic-2.0.json",
+          "type": "license"
+        },
+        {
+          "url": "https://github.com/raku-community-modules/App-MoarVM-Debug/archive/refs/tags/0.3.zip",
           "type": "source-distribution"
         },
         {
-          "url": "https://spdx.org/licenses/Artistic-2.0.json",
-          "type": "license"
+          "url": "mailto:community@raku.org",
+          "type": "support"
         }
       ],
       "tags": [
@@ -90,7 +94,7 @@
         {
           "type": "library",
           "mime-type": "text/plain",
-          "bom-ref": "pkg:raku/zef:lizmat/SBOM::Raku@0.0.6",
+          "bom-ref": "pkg:raku/zef:lizmat/SBOM::Raku@0.0.13",
           "authors": [
             {
               "bom-ref": "ElizabethMattijsen",
@@ -100,7 +104,7 @@
           "publisher": "zef",
           "group": "zef:lizmat",
           "name": "SBOM::Raku",
-          "version": "0.0.6",
+          "version": "0.0.13",
           "description": "Raku specific SBOM functionality",
           "scope": "required",
           "licenses": [
@@ -112,31 +116,31 @@
               }
             }
           ],
-          "purl": "pkg:raku/zef:lizmat/SBOM::Raku@0.0.6",
+          "purl": "pkg:raku/zef:lizmat/SBOM::Raku@0.0.13",
           "externalReferences": [
             {
-              "url": "https://raku.land/zef:lizmat/SBOM::Raku?v=0.0.6",
-              "type": "documentation"
+              "url": "https://github.com/lizmat/SBOM-Raku",
+              "type": "distribution"
             },
             {
-              "url": "mailto:liz@raku.rocks",
-              "type": "support"
+              "url": "https://raku.land/zef:lizmat/SBOM::Raku?v=0.0.13",
+              "type": "documentation"
             },
             {
               "url": "https://github.com/lizmat/SBOM-Raku/issues",
               "type": "issue-tracker"
             },
             {
-              "url": "https://github.com/lizmat/SBOM-Raku",
-              "type": "distribution"
+              "url": "https://spdx.org/licenses/Artistic-2.0.json",
+              "type": "license"
             },
             {
-              "url": "https://github.com/lizmat/SBOM-Raku/archive/refs/tags/0.0.6.zip",
+              "url": "https://github.com/lizmat/SBOM-Raku/archive/refs/tags/0.0.13.zip",
               "type": "source-distribution"
             },
             {
-              "url": "https://spdx.org/licenses/Artistic-2.0.json",
-              "type": "license"
+              "url": "mailto:liz@raku.rocks",
+              "type": "support"
             }
           ],
           "tags": [
@@ -150,9 +154,162 @@
   },
   "components": [
     {
+      "type": "platform",
+      "bom-ref": "Rakudo",
+      "authors": [
+        {
+          "bom-ref": "RakudoCoreDevelopers",
+          "name": "Rakudo Core Developers"
+        }
+      ],
+      "publisher": "Rakudo Core Developers",
+      "group": "Rakudo Core Developers",
+      "name": "Rakudo",
+      "version": "2026.08-427-g67f2e3bcf",
+      "description": "The Rakudo™ Compiler implementing the Raku® Programming Language",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Artistic-2.0",
+            "acknowledgement": "declared",
+            "url": "https://spdx.org/licenses/Artistic-2.0.json"
+          }
+        }
+      ],
+      "copyright": "© 2006 - 2026 Yet Another Society",
+      "externalReferences": [
+        {
+          "url": "https://github.com/rakudo/rakudo",
+          "type": "distribution"
+        },
+        {
+          "url": "https://github.com/rakudo/rakudo/issues",
+          "type": "issue-tracker"
+        },
+        {
+          "url": "https://github.com/rakudo/rakudo/archive/67f2e3bcf.zip",
+          "type": "source-distribution"
+        },
+        {
+          "url": "irc://libera.chat/raku",
+          "type": "chat"
+        }
+      ]
+    },
+    {
+      "type": "platform",
+      "bom-ref": "moar",
+      "authors": [
+        {
+          "bom-ref": "TheMoarVMTeam",
+          "name": "The MoarVM Team"
+        }
+      ],
+      "publisher": "The MoarVM Team",
+      "group": "The MoarVM Team",
+      "name": "Moar",
+      "version": "2026.08-9-gebc3f7069",
+      "description": "Short for \"Metamodel On A Runtime\", MoarVM is a modern virtual machine built for the Rakudo compiler and the NQP Compiler Toolchain.",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Artistic-2.0",
+            "acknowledgement": "declared",
+            "url": "https://spdx.org/licenses/Artistic-2.0.json"
+          }
+        }
+      ],
+      "copyright": "© 2012 - 2026 Jonathan Worthington",
+      "externalReferences": [
+        {
+          "url": "https://github.com/MoarVM/MoarVM",
+          "type": "distribution"
+        },
+        {
+          "url": "https://github.com/MoarVM/MoarVM/issues",
+          "type": "issue-tracker"
+        },
+        {
+          "url": "irc://libera.chat/moarvm",
+          "type": "chat"
+        },
+        {
+          "url": "https://github.com/MoarVM/MoarVM.git/archive/refs/tags/ebc3f7069.zip",
+          "type": "source-distribution"
+        }
+      ]
+    },
+    {
       "type": "library",
       "mime-type": "text/plain",
-      "bom-ref": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
+      "bom-ref": "pkg:raku/zef:lizmat/String::Utils?vers=vers:raku/%3E=0.0.40",
+      "authors": [
+        {
+          "bom-ref": "ElizabethMattijsen",
+          "name": "Elizabeth Mattijsen"
+        }
+      ],
+      "publisher": "zef",
+      "group": "zef:lizmat",
+      "name": "String::Utils",
+      "version": "0.0.40",
+      "description": "Provide some optimized string functions",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Artistic-2.0",
+            "acknowledgement": "declared",
+            "url": "https://spdx.org/licenses/Artistic-2.0.json"
+          }
+        }
+      ],
+      "purl": "pkg:raku/zef:lizmat/String::Utils@0.0.40",
+      "externalReferences": [
+        {
+          "url": "https://github.com/lizmat/String-Utils",
+          "type": "distribution"
+        },
+        {
+          "url": "https://raku.land/zef:lizmat/String::Utils?v=0.0.40",
+          "type": "documentation"
+        },
+        {
+          "url": "https://github.com/lizmat/String-Utils/issues",
+          "type": "issue-tracker"
+        },
+        {
+          "url": "https://spdx.org/licenses/Artistic-2.0.json",
+          "type": "license"
+        },
+        {
+          "url": "https://github.com/lizmat/String-Utils/archive/refs/tags/0.0.40.zip",
+          "type": "source-distribution"
+        },
+        {
+          "url": "mailto:liz@raku.rocks",
+          "type": "support"
+        }
+      ],
+      "tags": [
+        "STRING",
+        "UTIL",
+        "CHOMP",
+        "SHA1",
+        "STEM",
+        "NGRAM",
+        "NAUGHTY",
+        "WORD",
+        "MARKS",
+        "ANAGRAM"
+      ]
+    },
+    {
+      "type": "library",
+      "mime-type": "text/plain",
+      "bom-ref": "pkg:raku/zef:timo/JSON::Fast?vers=vers:raku/%3E=0.21",
       "authors": [
         {
           "bom-ref": "TimoPaulssen",
@@ -171,10 +328,10 @@
           "name": "Elizabeth Mattijsen"
         }
       ],
-      "publisher": "cpan",
-      "group": "cpan:TIMOTIMO",
+      "publisher": "zef",
+      "group": "zef:timo",
       "name": "JSON::Fast",
-      "version": "0.19",
+      "version": "0.21.0",
       "description": "A naive, fast json parser and serializer; drop-in replacement for JSON::Tiny",
       "scope": "required",
       "licenses": [
@@ -186,226 +343,67 @@
           }
         }
       ],
-      "purl": "pkg:raku/cpan:TIMOTIMO/JSON::Fast@0.19",
+      "purl": "pkg:raku/zef:timo/JSON::Fast@0.21.0",
       "externalReferences": [
-        {
-          "url": "https://raku.land/cpan:TIMOTIMO/JSON::Fast?v=0.19",
-          "type": "documentation"
-        },
         {
           "url": "git://github.com/timo/json_fast",
           "type": "distribution"
         },
         {
-          "url": "https://spdx.org/licenses/Artistic-2.0.json",
-          "type": "license"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "mime-type": "text/plain",
-      "bom-ref": "pkg:raku/zef:lizmat/Commands@0.0.8",
-      "authors": [
-        {
-          "bom-ref": "ElizabethMattijsen",
-          "name": "Elizabeth Mattijsen"
-        }
-      ],
-      "publisher": "zef",
-      "group": "zef:lizmat",
-      "name": "Commands",
-      "version": "0.0.8",
-      "description": "Handle interactive user commands",
-      "scope": "required",
-      "licenses": [
-        {
-          "license": {
-            "id": "Artistic-2.0",
-            "acknowledgement": "declared",
-            "url": "https://spdx.org/licenses/Artistic-2.0.json"
-          }
-        }
-      ],
-      "purl": "pkg:raku/zef:lizmat/Commands@0.0.8",
-      "externalReferences": [
-        {
-          "url": "https://raku.land/zef:lizmat/Commands?v=0.0.8",
+          "url": "https://raku.land/zef:timo/JSON::Fast?v=0.21.0",
           "type": "documentation"
         },
         {
-          "url": "https://github.com/lizmat/Commands",
-          "type": "distribution"
-        },
-        {
-          "url": "https://github.com/lizmat/Commands/issues",
-          "type": "issue-tracker"
-        },
-        {
-          "url": "https://github.com/lizmat/Commands/archive/refs/tags/0.0.8.zip",
-          "type": "source-distribution"
-        },
-        {
           "url": "https://spdx.org/licenses/Artistic-2.0.json",
           "type": "license"
         }
-      ],
-      "tags": [
-        "CLI",
-        "USER",
-        "INTERACTIVE",
-        "REPL"
-      ]
-    },
-    {
-      "type": "library",
-      "mime-type": "text/plain",
-      "bom-ref": "pkg:raku/zef:lizmat/Prompt@0.0.10",
-      "authors": [
-        {
-          "bom-ref": "ElizabethMattijsen",
-          "name": "Elizabeth Mattijsen"
-        }
-      ],
-      "publisher": "zef",
-      "group": "zef:lizmat",
-      "name": "Prompt",
-      "version": "0.0.10",
-      "description": "A smarter prompt for user interaction",
-      "scope": "required",
-      "licenses": [
-        {
-          "license": {
-            "id": "Artistic-2.0",
-            "acknowledgement": "declared",
-            "url": "https://spdx.org/licenses/Artistic-2.0.json"
-          }
-        }
-      ],
-      "purl": "pkg:raku/zef:lizmat/Prompt@0.0.10",
-      "externalReferences": [
-        {
-          "url": "https://raku.land/zef:lizmat/Prompt?v=0.0.10",
-          "type": "documentation"
-        },
-        {
-          "url": "https://github.com/lizmat/Prompt",
-          "type": "distribution"
-        },
-        {
-          "url": "https://github.com/lizmat/Prompt/issues",
-          "type": "issue-tracker"
-        },
-        {
-          "url": "https://github.com/lizmat/Prompt/archive/refs/tags/0.0.10.zip",
-          "type": "source-distribution"
-        },
-        {
-          "url": "https://spdx.org/licenses/Artistic-2.0.json",
-          "type": "license"
-        }
-      ],
-      "tags": [
-        "PROMPT",
-        "INTERACTIVE",
-        "READLINE"
-      ]
-    },
-    {
-      "type": "library",
-      "mime-type": "text/plain",
-      "bom-ref": "pkg:raku/zef:lizmat/String::Utils@0.0.35",
-      "authors": [
-        {
-          "bom-ref": "ElizabethMattijsen",
-          "name": "Elizabeth Mattijsen"
-        }
-      ],
-      "publisher": "zef",
-      "group": "zef:lizmat",
-      "name": "String::Utils",
-      "version": "0.0.35",
-      "description": "Provide some optimized string functions",
-      "scope": "required",
-      "licenses": [
-        {
-          "license": {
-            "id": "Artistic-2.0",
-            "acknowledgement": "declared",
-            "url": "https://spdx.org/licenses/Artistic-2.0.json"
-          }
-        }
-      ],
-      "purl": "pkg:raku/zef:lizmat/String::Utils@0.0.35",
-      "externalReferences": [
-        {
-          "url": "https://raku.land/zef:lizmat/String::Utils?v=0.0.35",
-          "type": "documentation"
-        },
-        {
-          "url": "https://github.com/lizmat/String-Utils",
-          "type": "distribution"
-        },
-        {
-          "url": "https://github.com/lizmat/String-Utils/issues",
-          "type": "issue-tracker"
-        },
-        {
-          "url": "https://github.com/lizmat/String-Utils/archive/refs/tags/0.0.35.zip",
-          "type": "source-distribution"
-        },
-        {
-          "url": "https://spdx.org/licenses/Artistic-2.0.json",
-          "type": "license"
-        }
-      ],
-      "tags": [
-        "STRING",
-        "UTIL",
-        "CHOMP",
-        "SHA1",
-        "STEM",
-        "NGRAM",
-        "NAUGHTY",
-        "WORD",
-        "MARKS"
       ]
     }
   ],
   "externalReferences": [
     {
-      "url": "https://raku.land/zef:raku-community-modules/App::MoarVM::Debug?v=0.2",
-      "type": "documentation"
-    },
-    {
       "url": "https://github.com/raku-community-modules/App-MoarVM-Debug",
       "type": "distribution"
+    },
+    {
+      "url": "https://raku.land/zef:raku-community-modules/App::MoarVM::Debug?v=0.3",
+      "type": "documentation"
     },
     {
       "url": "https://github.com/raku-community-modules/App-MoarVM-Debug/issues",
       "type": "issue-tracker"
     },
     {
-      "url": "https://github.com/raku-community-modules/App-MoarVM-Debug/archive/refs/tags/0.2.zip",
+      "url": "https://spdx.org/licenses/Artistic-2.0.json",
+      "type": "license"
+    },
+    {
+      "url": "https://github.com/raku-community-modules/App-MoarVM-Debug/archive/refs/tags/0.3.zip",
       "type": "source-distribution"
     },
     {
-      "url": "https://spdx.org/licenses/Artistic-2.0.json",
-      "type": "license"
+      "url": "mailto:community@raku.org",
+      "type": "support"
     }
   ],
   "dependencies": [
     {
-      "ref": "pkg:raku/cpan:TIMOTIMO/JSON::Fast?vers=vers:raku/%3E=0.19"
+      "ref": "Rakudo",
+      "dependsOn": [
+        "moar"
+      ]
     },
     {
-      "ref": "pkg:raku/zef:lizmat/Commands?vers=vers:raku/%3E=0.0.8"
+      "ref": "pkg:raku/zef:lizmat/SBOM::Raku@0.0.13",
+      "dependsOn": [
+        "Rakudo"
+      ]
     },
     {
-      "ref": "pkg:raku/zef:lizmat/Prompt?vers=vers:raku/%3E=0.0.10"
+      "ref": "pkg:raku/zef:lizmat/String::Utils?vers=vers:raku/%3E=0.0.40"
     },
     {
-      "ref": "pkg:raku/zef:lizmat/String::Utils?vers=vers:raku/%3E=0.0.32"
+      "ref": "pkg:raku/zef:timo/JSON::Fast?vers=vers:raku/%3E=0.21"
     }
   ]
 }
