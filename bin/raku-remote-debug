@@ -1,4 +1,4 @@
-use App::MoarVM::Debug:ver<0.2>:auth<zef:raku-community-modules>;
+use App::MoarVM::Debug:auth<zef:raku-community-modules>;
 
 if @*ARGS -> @ARGS {
     my $port := %*ENV<MVM_DEBUG_PORT> // 27434;

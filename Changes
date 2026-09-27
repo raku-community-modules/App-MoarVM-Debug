@@ -2,6 +2,9 @@ Revision history for App-MoarVM-Debug
 
 {{$NEXT}}
 
+0.4  2026-09-27T18:26:02+02:00
+    - Make sure scripts don't depend on a specific version
+
 0.3  2026-09-16T16:28:19+02:00
     - Up dependencies and remove as yet unneeded dependencies
     - Modernize META and documentation
